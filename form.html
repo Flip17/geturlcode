@@ -1,0 +1,25 @@
+<html>
+
+<body>
+<script type="text/javascript">
+	function getUrl() {
+	var urlshow = document.getElementById('url').value;
+	
+	document.getElementById('showurl').value = urlshow;
+	
+}
+</script>
+<form action="/geturl" method="get">
+<label for="url">URL:</label>
+<input type="text" id="url" name="geturl">
+<input type="submit" value="submit" onclick="getUrl();" />
+
+
+
+</form>
+
+<p>{{.Url}}
+
+</body>
+
+</html>
