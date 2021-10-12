@@ -61,10 +61,7 @@ func main() {
 	
 	http.HandleFunc("/", renderTemp)
 	http.HandleFunc("/geturl", showurl)
-	err := http.ListenAndServe(":5000", nil)
-		if err != nil {
-			log.Fatal("ListenAndServe: ", err)
-		}	
+		
 	
 	
 }
