@@ -9,7 +9,7 @@ import (
 )
 
 func renderTemp(w http.ResponseWriter, r *http.Request) {
-	parsedTemplate, _ := template.ParseFiles("form.html")
+	parsedTemplate, _ := template.ParseGlob("form.html")
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
 		log.Println("Error executing html :", err)
@@ -31,7 +31,7 @@ func showurl(w http.ResponseWriter, r *http.Request) {
 
 	sb := string(body)
 
-	t, err := template.ParseFiles("form.html")
+	t, _ := template.ParseGlob("form.html")
 	links := struct {
 		Url string
 	}{
