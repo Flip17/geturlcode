@@ -1,1 +1,1 @@
-web: geturlcode
+web: go getweb.go
