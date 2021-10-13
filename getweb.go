@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 )
 
 func renderTemp(w http.ResponseWriter, r *http.Request) {
@@ -45,9 +46,10 @@ func main() {
 
 	http.HandleFunc("/", renderTemp)
 	http.HandleFunc("/geturl", showurl)
-	err := http.ListenAndServe(":", nil)
-	if err != nil {
-		log.Fatal("ListenAndServe: ", err)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
 	}
+	http.ListenAndServe(":"+port, nil)
 
 }
